@@ -12,6 +12,7 @@ import {
   SubTokenOutput,
   AssetType,
 } from "./types";
+import UzhethV3Market from "../markets/uzheth";
 import AaveMarket from "../markets/aave";
 import EthereumV3Config from "../markets/ethereum";
 import AaveTestMarket from "../markets/test";
@@ -49,6 +50,7 @@ export enum ConfigNames {
   Optimistic = "Optimistic",
   Arbitrum = "Arbitrum",
   Ethereum = "Ethereum",
+  Uzheth = "Uzheth",
 }
 
 export const getParamPerNetwork = <T>(
@@ -108,6 +110,8 @@ export const loadPoolConfig = (configName: ConfigNames): PoolConfiguration => {
       return FantomMarket;
     case ConfigNames.Polygon:
       return PolygonMarket;
+    case ConfigNames.Uzheth:
+      return UzhethV3Market;
     case ConfigNames.Optimistic:
       return OptimisticConfig;
     case ConfigNames.Arbitrum:
